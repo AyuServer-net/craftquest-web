@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Map - CraftQuest</title>
+    <link rel="icon" href="logo.png">
+</head>
+<body>
+
+<div class="server-container">
+    <div class="server-item" onclick="redirectToMap('Lobby', 'https://www.craftquest.xyz/map/lobby/')">Lobby Server</div>
+    <div class="server-item" onclick="redirectToMap('CraftQuest', 'https://www.craftquest.xyz/map/craftquest/')">CraftQuest Server</div>
+    <div class="server-item" onclick="redirectToMap('Life', 'https://www.craftquest.xyz/map/life/')">Life Server</div>
+    <div class="server-item" onclick="redirectToMap('Resource', 'https://www.craftquest.xyz/map/resource/')">Resource Server</div>
+    <div class="server-item" onclick="redirectToMap('Skyblock', 'https://www.craftquest.xyz/map/skyblock/')">Skyblock Server</div>
+</div>
+
+<script>
+    function redirectToMap(serverName, mapURL) {
+        window.location.href = mapURL;
+    }
+</script>
+
+</body>
+</html>

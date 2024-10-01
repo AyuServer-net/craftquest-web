@@ -1,0 +1,60 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('back-ground.png') center/cover; /* 背景画像を追加 */
+    color: #fff;
+}
+
+.server-container {
+    text-align: center;
+}
+
+.server-item {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding: 20px 40px; /* パディングを増やしてボタンを大きくする */
+    border: none; /* ボーダーを削除 */
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* 背景を透明な黒に設定 */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden; /* テキストがはみ出る場合に対処するために追加 */
+    text-align: center; /* テキストを中央揃えにする */
+    display: flex; /* 子要素を中央に揃えるために追加 */
+    justify-content: center; /* 子要素を中央に揃えるために追加 */
+    align-items: center; /* 子要素を中央に揃えるために追加 */
+}
+
+.server-item:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* ホバー時に背景を少し濃くする */
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* ホバー時に影を追加 */
+}
+
+.server-item:active,
+.server-item:focus {
+    background-color: rgba(0, 0, 0, 1); /* アクティブ時に背景を完全に濃くする */
+    outline: none;
+}
+
+/* テキストがホバー時に揺れるアニメーション */
+.server-item:hover span {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25%, 75% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}

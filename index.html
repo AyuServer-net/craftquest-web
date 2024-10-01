@@ -1,0 +1,417 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CraftQuest</title>
+  <link rel="icon" href="logo.png">
+  <meta name="description" content="CraftQuest!">
+  <meta name="keywords" content="craftquest, craftquest minecraft, ayu, minecraft, mmorpg, java, Minecraft">
+  <meta name="author" content="admin@craftquest.xyz">
+  <meta property="og:title" content="CraftQuest">
+  <meta property="og:description" content="Minecraftで制作されているMMORPGサーバー">
+  <meta property="og:url" content="https://www.craftquest.xyz">
+  <meta property="og:image" content="logo.png">
+  <script src="https://kit.fontawesome.com/d402eeb41d.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+       $('a[href^="#"]').on('click', function(event) {
+          var target = $(this.getAttribute('href'));
+          if( target.length ) {
+             event.preventDefault();
+             $('html, body').stop().animate({
+                scrollTop: target.offset().top
+             }, 1000);
+          }
+       });
+    });
+    
+    
+    window.addEventListener("scroll", function() {
+       var divsAndLinks = [
+          { divId: "home", linkId: "home_btn" },
+          { divId: "about", linkId: "about_btn" },
+          { divId: "faq", linkId: "faq_btn" },
+          { divId: "contact", linkId: "contact_btn" }
+       ];
+    
+       divsAndLinks.forEach(function(pair) {
+          var div = document.getElementById(pair.divId);
+          var link = document.getElementById(pair.linkId);
+    
+          if (div && link) {
+             var divPosition = div.getBoundingClientRect();
+    
+             if (divPosition.top < window.innerHeight && divPosition.bottom > 0) {
+                link.classList.add("text-green-500");
+                divsAndLinks.forEach(function(otherPair) {
+                   if (otherPair.linkId !== pair.linkId) {
+                      document.getElementById(otherPair.linkId).classList.remove("text-green-500");
+                   }
+                });
+             } else {
+                link.classList.remove("text-green-500");
+             }
+          }
+       });
+    });
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Notable&family=Noto+Serif+JP:wght@200&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .font-electrolize { font-family: 'Electrolize', sans-serif; }
+    .font-notable { font-family: 'Notable', sans-serif; }
+    .font-ubuntu { font-family: 'Ubuntu', sans-serif; }
+    .font-notoserifjp { font-family: 'Noto Serif JP', serif; }
+    .font-notosansjp { font-family: 'Noto Sans JP', sans-serif; }
+
+    .discord-btn {
+        display: inline-block;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+        color: white;
+        background: #7289DA;
+        font-weight: bold;
+        border: solid 4px #7289DA;
+        border-radius: 8px;
+    }
+    
+    .discord-btn:hover {
+        background: white;
+        color: #7289DA;
+    }
+
+    .join-btn {
+        display: inline-block;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+        color: white;
+        background: #00bfff;
+        font-weight: bold;
+        border: solid 4px #00bfff;
+        border-radius: 8px;
+    }
+    
+    .join-btn:hover {
+        background: white;
+        color: #00bfff;
+    }
+    
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .centered-link {
+         display: flex;
+    }
+
+    .centered-image {
+         max-width: 100%; /* 画像が親要素内に収まるように最大幅を設定 */
+    }
+
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const elements = document.querySelectorAll('.onloadnimate');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('opacity-100');
+                  entry.target.classList.remove('translate-y-10');
+                }else{
+                  entry.target.classList.remove('opacity-100');
+                  entry.target.classList.add('translate-y-10');
+                }
+            });
+        });
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+  </script>
+
+
+</head>
+<body class="h-screen bg-black bg-slate-950 text-slate-50 font-notosansjp text-sm font-medium">
+  <div class="w-full h-12 fixed top-5 z-[100] flex flex-row">
+    <div class="h-full w-full xl:w-[90rem] mx-auto flex flex-col xl:flex-row gap-5 xl:gap-0 text-center items-center xl:text-left xl:items-start">
+
+      <div class="w-96 h-12 flex flex-col justify-center">
+        <a href="#top" class="font-ubuntu font-bold text-lg">CraftQuest</a>
+      </div>
+
+      <div class="w-full bg-transparent h-12 flex flex-row gap-16 text-center items-center justify-center text-xs">
+        <a href="#home" class="duration-300 hover:underline" id="home_btn">Home</a>
+        <a href="#about" class="duration-300 hover:underline" id="about_btn">About</a>
+        <a href="#faq" class="duration-300 hover:underline" id="faq_btn">FAQ</a>
+        <a href="#contact" class="duration-300 hover:underline" id="contact_btn">Contact</a>
+      </div>
+
+      <div class="w-fit xl:w-96 h-12 flex flex-row gap-16 text-center items-center justify-end text-xs">
+        <a href="https://discord.craftquest.xyz/" class="duration-300 hover:underline">
+          <div class="relative group">
+            <i class="fa-brands fa-discord duration-300 hover:scale-[120%] hover:rotate-45"></i>
+            <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 bg-slate-950 rounded-xl h-12 w-32  hidden group-hover:block">
+              <div class="h-full w-full flex flex-col items-center justify-center text-center">
+                公式Discordサーバー
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.craftquest.xyz/join/" class="duration-300 hover:underline">
+          <div class="relative group">
+            <i class="fa-solid fa-gamepad duration-300 hover:scale-[120%] hover:rotate-45"></i>
+            <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 bg-slate-950 rounded-xl h-12 w-32  hidden group-hover:block">
+              <div class="h-full w-full flex flex-col items-center justify-center text-center">
+                サーバーへの参加方法
+              </div>
+            </div>  
+          </div>
+        </a>
+
+        <a href="https://www.craftquest.xyz/map/" class="duration-300 hover:underline">
+          <div class="relative group">
+            <i class="fa-solid fa-map duration-300 hover:scale-[120%] hover:rotate-45"></i>
+            <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 bg-slate-950 rounded-xl h-12 w-32  hidden group-hover:block">
+              <div class="h-full w-full flex flex-col items-center justify-center text-center">
+                サーバー内マップを表示
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="top" class="h-full w-full relative">
+    
+    <div class="h-full w-full bg-[url('background.png')] bg-center bg-cover bg-no-repeat overflow-hidden">
+      
+      <div class="h-full w-full bg-stone-950 bg-opacity-20 flex flex-col">
+
+        <div class="h-[32rem] xl:h-64 w-full xl:w-[75rem] m-auto flex flex-col xl:flex-row">
+
+          <div class="xl:mt-0 h-full w-full xl:w-1/2 flex flex-col justify-center text-4xl text-slate-50 px-2 z-20">
+  
+            <div class="flex flex-col xl:flex-row mt-16 xl:mt-0">
+              <p>CraftQuestは、</p>
+              <div class="h-12 w-80 overflow-hidden">
+                <div class="h-12 w-fit text-left" id="msg1"></div>
+                <div class="h-12 w-fit text-left" id="msg2"></div>
+              </div>
+            </div>
+            <p>Minecraftで体験できる<br>採掘系MMORPG。</p>
+            <p class="text-lg">作業厨大歓迎。</p>
+          </div>
+
+          <div class="h-full w-full xl:w-1/2 relative">
+            <img src="player.png" alt="player.png" class="z-10 absolute -right-24 -top-36 xl:left-1/2 xl:-translate-x-1/2 xl:top-1/2 xl:-translate-y-1/2 h-[30rem] w-auto">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="absolute bottom-0 h-64 w-full flex flex-col  bg-gradient-to-t from-slate-950/100 via-slate-950/80"></div>
+  </div>
+  
+  <div id="home" class="h-auto min-h-full w-full flex flex-col py-16">
+    <p class="text-4xl text-center duration-[1000ms] opacity-0 onloadnimate translate-y-10">飽きさせない、楽しさを。</p>
+    <p class="text-2xl text-center duration-[1000ms] opacity-0 onloadnimate translate-y-10 mb-16">忘れられない時間をあなたと。</p>
+    <div class="h-auto w-full xl:w-[90rem] mx-auto flex flex-row flex-wrap gap-5 justify-center px-5">
+      
+      <div class="min-h-[15rem] w-full xl:w-[30rem] rounded-xl border-2 border-slate-900 duration-300 hover:border-green-500 glow-box p-5 flex flex-col">
+        <p class="text-2xl">飽きさせない。</p>
+        <p class="text-xl font-light mt-auto">
+          定期アップデートによるコンテンツ追加で、常に新しい経験を。<br>
+          ユーザ第一の運営方針で、楽しい経験を。<br>
+          ここでしか、得られない楽しい何かを。
+        </p>
+      </div>
+
+      <div class="min-h-[15rem] w-full xl:w-[30rem] rounded-xl border-2 border-slate-900 duration-300 hover:border-green-500 glow-box p-5 flex flex-col">
+        <p class="text-2xl">離れさせない。</p>
+        <p class="text-xl font-light mt-auto">
+          中毒性のあるゲームを、あなたに。<br>
+          時間を忘れ、永遠と楽しめる空間を。<br>
+          ここでしか、体験できない楽しい何かを。
+        </p>
+      </div>
+
+      <div class="min-h-[15rem] w-full xl:w-[30rem] rounded-xl border-2 border-slate-900 duration-300 hover:border-green-500 glow-box p-5 flex flex-col">
+        <p class="text-2xl">笑顔を創る。</p>
+        <p class="text-xl font-light mt-auto">
+          プレイヤーの皆様が、笑顔になれる。<br>
+          そんなサーバーを、ゲームを、コミュニティーを。<br>
+          ここでしか、手に入らない楽しい何かを。
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="about" class="min-h-full w-full py-16">
+    <p class="text-4xl text-center duration-[1000ms] opacity-0 onloadnimate translate-y-10">CraftQuestについて</p>
+    <p class="text-2xl text-center duration-[1000ms] opacity-0 onloadnimate translate-y-10 mb-16">サーバー内のスクリーンショットを抜粋してご紹介</p>
+
+    <div class="h-auto w-full xl:w-[50rem] mx-auto flex flex-col gap-5 px-5">
+      <div class="h-64 w-full flex flex-col xl:flex-row">
+        <div class="h-full w-full xl:w-1/2 bg-[url('craftquest.png')] bg-cover bg-no-repeat bg-center rounded-xl"></div>
+        <div class="h-full w-full xl:w-1/2 p-5 xl:px-5 xl:py-0">
+          <p class="text-2xl font-bold">メインシティ</p>
+          <p class="text-lg font-ubuntu"><br>
+            メインシティの全体像です。<br>
+            ここから採掘場やショップに<br>
+            アクセスすることができます。</p>
+        </div>
+        
+      </div>
+      <div class="h-64 w-full flex flex-col xl:flex-row">
+        <div class="h-full w-full xl:w-1/2 bg-[url('tutorial.png')] bg-cover bg-no-repeat bg-center rounded-xl"></div>
+        <div class="h-full w-full xl:w-1/2 p-5 xl:px-5 xl:py-0">
+          <p class="text-2xl font-bold">チュートリアル</p>
+          <p class="text-lg font-ubuntu"><br>
+            どのプレイヤーも通るチュートリアル。<br>
+            このサーバーの遊び方を簡単に手短に<br>
+            習得できる。お金の使い方や職業を<br>
+            15分程度でマスターできます。</p>
+        </div>
+      </div>
+      <div class="h-64 w-full flex flex-col xl:flex-row">
+        <div class="h-full w-full xl:w-1/2 bg-[url('centercity.png')] bg-cover bg-no-repeat bg-center rounded-xl"></div>
+        <div class="h-full w-full xl:w-1/2 p-5 xl:px-5 xl:py-0">
+          <p class="text-2xl font-bold">センター街</p>
+          <p class="text-lg font-ubuntu"><br>
+            鉱石を買い取ってくれるショップや<br>
+            武器を買うショップがあります。<br>
+            この周辺には隠し取引があります。<br>
+            頑張って探してみてね！^^</p>
+        </div>
+      </div>
+      <div class="h-64 w-full flex flex-col xl:flex-row">
+        <div class="h-full w-full xl:w-1/2 bg-[url('mine1.png')] bg-cover bg-no-repeat bg-center rounded-xl"></div>
+        <div class="h-full w-full xl:w-1/2 p-5 xl:px-5 xl:py-0">
+          <p class="text-2xl font-bold">第一採掘場</p>
+          <p class="text-lg font-ubuntu"><br>
+            初心者が最初に行くならまずここ！<br>
+            品質が低く価格が低い鉱石が取れます。<br>
+            ここでレベルを上げて次の階級へGO!!!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="faq" class="min-h-full w-full flex flex-col justify-center">
+    <p class="text-4xl text-center duration-[1000ms] opacity-0 onloadnimate translate-y-10">FAQ</p>
+    <p class="text-2xl text-center duration-[1000ms] opacity-0 onloadnimate translate-y-10 mb-16">質問をクリックして回答を見る</p>
+    <div class="flex flex-col h-auto w-auto gap-5 px-5">
+
+      <details class="mx-auto h-auto w-full xl:w-[35rem] cursor-pointer">
+        <summary class="text-lg border-b border-stone-100 p-5">サーバーの参加方法は？</summary>
+        <div class="w-full  border-b border-stone-100 p-5 text-md">
+          参加方法は下のボタンを押して確認できます。<br>
+          <a href="https://www.craftquest.xyz/join/" class="join-btn">サーバーに参加する</a>
+        </div>
+      </details>
+
+      <details class="mx-auto h-auto w-full xl:w-[35rem] cursor-pointer">
+        <summary class="text-lg border-b border-stone-100 p-5">Discordはどこから参加しますか？</summary>
+        <div class="w-full  border-b border-stone-100 p-5 text-md">
+          Discordは下のボタンを押して参加できます。<br>
+          <a href="https://discord.craftquest.xyz/" class="discord-btn">Discordに参加する</a>
+        </div>
+      </details>
+
+      <details class="mx-auto h-auto w-full xl:w-[35rem] cursor-pointer">
+        <summary class="text-lg border-b border-stone-100 p-5">サイトのコードを流用してもいいですか？</summary>
+        <div class="w-full  border-b border-stone-100 p-5 text-md">
+          本サイトの著作権はQuestCraftとデザイナーである、mizu氏が保有しております。<br>
+          無断でのコピーは著作権法違反となります。<br>
+          許可の申請はayu氏にお願いします。
+        </div>
+      </details>
+
+      <p class="text-2xl text-center mt-5">
+        解決しませんか？<br>
+        Discordで聞いてください!<br>
+        <br>
+          <a href="https://discord.craftquest.xyz/" class="discord-btn">Discordに参加する</a>
+          <br>
+          <br/>          
+          <iframe src="https://discord.com/widget?id=1175038485292384337&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" style="display: block; margin: auto;"></iframe>
+        </p>
+      
+      <p class="text-2xl text-center mt-5">
+        <a href="https://minecraft.jp/servers/play.craftquest.xyz">CraftQuestに投票</a>
+      </p>
+
+      <div style="text-align: center;">
+        <a href="https://minecraft.jp/servers/play.craftquest.xyz">
+          <img src="https://minecraft.jp/servers/play.craftquest.xyz/banner/5/560x95.png" style="display: block; margin: auto;"/>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="contact" class="min-h-full w-full flex flex-col justify-center bg-[url('bottom.png')] bg-cover bg-no-repeat bg-center">
+
+    <div class="m-auto">
+      <p class="text-4xl text-center duration-[1000ms] opacity-0 onloadnimate translate-y-10">連絡先</p>
+      <p class="text-2xl text-center duration-[1000ms] opacity-0 onloadnimate translate-y-10 mb-16">もし何かあれば以下の連絡先に連絡してください</p>
+
+      <div class="w-fit h-auto text-left mx-auto">
+        <p class="text-xl"><i class="fa-solid fa-envelope mr-5 w-4"></i> admin@craftquest.xyz</p>
+        <p class="text-xl"><i class="fa-brands fa-discord mr-5 w-4"></i> ayu.0907</p>
+        <p class="text-xl"><i class="fa-brands fa-twitter mr-5 w-4"></i> ayuyu0907</p>
+      </div>
+    </div>
+
+    <div class="h-auto w-full px-16 py-8 mt-auto">
+      <div class="w-full h-auto flex flex-col xl:flex-row">
+        <p>&copy; 2024 CraftQuest</p>
+        <p class="xl:ml-auto">Made By <a href="https://dhmo.xyz" class="duration-300 hover:underline">DHMO</a></p>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+<script>
+  var messages = ["たのしい。","やめられない。","とまらない。"];
+
+  document.getElementById('msg1').innerHTML = messages[0];
+
+  var step = 0;
+  setTimeout(function(){
+    setInterval(function (){
+      var nextstep = ( (messages[step+1] != null) ? (step + 1) : 0 );
+      var message = messages[nextstep];
+      document.getElementById('msg2').innerHTML = message;
+      document.getElementById('msg1').classList.add('-translate-y-12', "duration-300");
+      document.getElementById('msg2').classList.add('-translate-y-12', "duration-300");
+      if(nextstep != 0){
+        step += 1;
+      }else {
+        step = 0;
+      }
+      setTimeout(function(){
+        document.getElementById('msg1').innerHTML = message;
+        document.getElementById('msg2').innerHTML = "";
+        document.getElementById('msg1').classList.remove('-translate-y-12', "duration-300");
+        document.getElementById('msg2').classList.remove('-translate-y-12', "duration-300");
+      },500)
+    }, 1000);
+  },1000);
+</script>
+</html>
+
